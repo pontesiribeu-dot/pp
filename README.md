@@ -1,53 +1,152 @@
-# Opensquad
+# 🚀 PONTES PLANEJADOS — Social Bot Automático
 
-Crie squads de agentes de IA que trabalham juntos — direto do seu IDE.
+Sistema de geração e postagem automática de conteúdo em redes sociais para móveis planejados.
 
-## Como Usar
+---
 
-Abra esta pasta no seu IDE e digite:
+## 📋 Quick Start
 
-```
-/opensquad
-```
-
-Isso abre o menu principal. De lá você pode criar squads, executá-los e mais.
-
-Você também pode ser direto — descreva o que quer em linguagem natural:
-
-```
-/opensquad crie um squad para escrever posts no LinkedIn sobre IA
-/opensquad execute o squad meu-squad
+### 1️⃣ Clone e instale
+```bash
+git clone https://github.com/pontesiribeu-dot/pp.git
+cd pp
+npm install
 ```
 
-## Criar um Squad
-
-Digite `/opensquad` e escolha "Criar squad" no menu, ou seja direto:
-
-```
-/opensquad crie um squad para [o que você precisa]
+### 2️⃣ Configure suas redes sociais
+```bash
+node setup-credentials.js
 ```
 
-O Arquiteto fará algumas perguntas, projetará o squad e configurará tudo automaticamente.
+Este script vai guiar você para:
+- ✅ Instagram: `https://www.instagram.com/pontes_planejados/`
+- ✅ Facebook: `https://www.facebook.com/` (sua página)
+- ✅ Twitter/X: `https://x.com/ponets97575`
 
-## Executar um Squad
+### 3️⃣ Inicie o bot
+```bash
+npm start
+```
 
-Digite `/opensquad` e escolha "Executar squad" no menu, ou seja direto:
+O sistema agora posta automaticamente às **09:00**, **13:00** e **19:00** todos os dias.
+
+---
+
+## 🎯 O que acontece automaticamente
+
+**Cada postagem gera:**
+1. ✍️ Legenda inteligente (IA com OpenAI)
+2. 🖼️ Imagem realista (IA geradora)
+3. 📱 Postagem em Instagram
+4. 📘 Postagem em Facebook
+5. 𝕏 Postagem em Twitter/X
+
+**Conteúdo variado:**
+- Antes e depois
+- Transformação de ambientes
+- Dicas de organização
+- Prova social (testemunhas)
+- Ofertas com urgência
+
+**Cada legenda inclui:**
+- Dor (problema do cliente)
+- Desejo (solução bonita)
+- CTA (Chama no WhatsApp para projeto grátis)
+
+---
+
+## 🔑 Credenciais Necessárias
+
+Seu `OPENAI_API_KEY` já está configurado ✓
+
+Para as redes, você precisa de tokens de acesso oficial via:
+
+### Instagram & Facebook
+- [Facebook Developers](https://developers.facebook.com)
+- Graph API Explorer
+- Gere token de longa duração
+
+### Twitter/X
+- [Twitter Developer Portal](https://developer.twitter.com)
+- Keys and tokens
+- Permissões: Tweet Creation + Media Upload
+
+---
+
+## 📁 Estrutura do Projeto
 
 ```
-/opensquad execute o squad <nome-do-squad>
+/agents           → Agentes inteligentes (social.js)
+/services         → Integrações com APIs
+/utils            → Helpers (cron, retry, logger, etc)
+/config           → Configurações centralizadas
+.env              → Credenciais (nunca commitar!)
+index.js          → Entrada principal
+setup-credentials.js → Wizard de configuração
+test-post.js      → Testa gerando 1 post
 ```
 
-O squad executa automaticamente, pausando apenas nos checkpoints de decisão.
+---
 
-## Escritório Virtual
+## 🧪 Testar antes de produção
 
-O Escritório Virtual é uma interface visual 2D que mostra seus agentes trabalhando em tempo real.
-
-**Passo 1 — Gere o dashboard** (no seu IDE):
-
+Gere um post de teste:
+```bash
+node test-post.js
 ```
-/opensquad dashboard
-```
+
+Se vir sucesso (não mock), está pronto para produção!
+
+---
+
+## 📊 Logs e Monitoramento
+
+Todos os eventos são registrados com timestamp:
+- ✅ Posts gerados com sucesso
+- ❌ Erros de autenticação
+- 🔄 Retries automáticos
+- ⏱️ Horários executados
+
+---
+
+## 🆘 Troubleshooting
+
+**Erro: "OPENAI_API_KEY is missing"**
+- Verifique se `.env` contém sua chave OpenAI
+
+**Erro: "Instagram token inválido"**
+- Regenere o token em Facebook Developers
+- Certifique-se que a página Instagram está vinculada
+
+**Erro: "Rate limit exceeded"**
+- Sistema já inclui delays de 2-5s entre plataformas
+- Se persistir, espere e reinicie
+
+---
+
+## 📌 Notas
+
+- Sistema funciona 24/7 após `npm start`
+- Horários podem ser customizados em `config/config.js`
+- Conteúdo pode ser ajustado em `agents/social.js`
+- Modo "mock" ativa se credenciais faltarem (seguro)
+
+---
+
+## 🔐 Segurança
+
+- Nunca commite `.env` com credenciais reais
+- `.gitignore` já está configurado
+- Use tokens de longa duração da Meta/Twitter
+- Regenere periodicamente por segurança
+
+---
+
+## 🎉 Boa sorte!
+
+Seu sistema está pronto para gerar leads automáticamente.
+
+🌟 **Dúvidas?** Consulte [SETUP.md](./SETUP.md)
 
 **Passo 2 — Sirva localmente** (no terminal):
 
